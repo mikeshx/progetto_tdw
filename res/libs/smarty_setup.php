@@ -1,8 +1,14 @@
 <?php
-define('SMARTY_DIR', '/var/www/html/giacomo/res/smarty/');
-define('SETUP_DIR', '/var/www/html/giacomo/res/smarty/');
 
-define('RES_DIR', '/var/www/html/giacomo/res/');
+//linux dirs
+//define('SMARTY_DIR', '/var/www/html/beerify/res/smarty/');
+//define('SETUP_DIR', '/var/www/html/beerify/res/smarty/');
+//define('RES_DIR', '/var/www/html/beerify/res/');
+
+//windows dirs
+define('SMARTY_DIR', 'C:/xampp/htdocs/beerify/res/smarty/');
+define('SETUP_DIR', 'C:/xampp/htdocs/beerify/res/smarty/');
+define('RES_DIR', 'C:/xampp/htdocs/beerify/res/');
 
 require(SMARTY_DIR . 'Smarty.class.php');
 
@@ -17,5 +23,4 @@ class mySmarty extends Smarty {
       $this->setCacheDir(SETUP_DIR . 'cache/');
     }
 }
-
 ?>

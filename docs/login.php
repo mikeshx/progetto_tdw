@@ -1,6 +1,5 @@
 <?php
 ini_set('display_errors', 1);
-
 //linux dir
 //require_once('/var/www/html/beerify/res/libs/smarty_init.php');
 
@@ -8,6 +7,6 @@ ini_set('display_errors', 1);
 require_once('C:/xampp/htdocs/beerify/res/libs/smarty_init.php');
 
 $tpl = new smarty_init();
-$tpl->render('index');
+$tpl->render('login');
 
 ?>
