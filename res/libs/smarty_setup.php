@@ -1,14 +1,14 @@
 <?php
 
 //linux dirs
-//define('SMARTY_DIR', '/var/www/html/beerify/res/smarty/');
-//define('SETUP_DIR', '/var/www/html/beerify/res/smarty/');
-//define('RES_DIR', '/var/www/html/beerify/res/');
+define('SMARTY_DIR', '/var/www/html/beerify/res/smarty/');
+define('SETUP_DIR', '/var/www/html/beerify/res/smarty/');
+define('RES_DIR', '/var/www/html/beerify/res/');
 
 //windows dirs
-define('SMARTY_DIR', 'C:/xampp/htdocs/beerify/res/smarty/');
-define('SETUP_DIR', 'C:/xampp/htdocs/beerify/res/smarty/');
-define('RES_DIR', 'C:/xampp/htdocs/beerify/res/');
+//define('SMARTY_DIR', 'C:/xampp/htdocs/beerify/res/smarty/');
+//define('SETUP_DIR', 'C:/xampp/htdocs/beerify/res/smarty/');
+//define('RES_DIR', 'C:/xampp/htdocs/beerify/res/');
 
 require(SMARTY_DIR . 'Smarty.class.php');
 

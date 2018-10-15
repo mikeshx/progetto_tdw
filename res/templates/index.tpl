@@ -215,7 +215,7 @@
     <section class="container-fluid portfolio-layout portfolio-columns-fw">
         <div class="row">
             <header class="sec-heading">
-                <h2>Some of our projects</h2>
+                <h2>Some of our projects, {$user_type}</h2>
                 <span class="subheading">Lorem ipsum dolor sit amet consectetur adipisicing</span>
             </header>
         </div>
