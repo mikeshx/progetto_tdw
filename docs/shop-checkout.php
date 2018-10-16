@@ -1,13 +1,10 @@
 <?php
 ini_set('display_errors', 1);
 
-//linux dir
-require_once('/var/www/html/beerify/res/libs/smarty_init.php');
+//dir Win - Linux
+require_once('require.php');
 
-//windows dir
-//require_once('C:/xampp/htdocs/beerify/res/libs/smarty_init.php');
-
-$tpl = new smarty_init();
-$tpl->render('shop-checkout');
+$mySmarty = new mySmarty();
+$mySmarty->display(RES_DIR . '/templates/shop-checkout.tpl');
 
 ?>

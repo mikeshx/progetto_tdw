@@ -1,11 +1,10 @@
 <?php
 ini_set('display_errors', 1);
 
-//linux dir
-require_once('/var/www/html/beerify/res/libs/smarty_setup.php');
+//dir Win - Linux
+require_once('require.php');
 
-//windows dir
-//require_once('C:/xampp/htdocs/beerify/res/libs/smarty_init.php');
+
 
 //The real code starts here
 // Check for a minimum php version
