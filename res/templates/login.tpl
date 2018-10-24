@@ -86,20 +86,20 @@
                         <div class="panel-body">
 
                           <div class="form-login">
-                            <form action="post">
+                            <form method="post" action="login.php">
                               <!-- Username -->
                               <div class="form-group">
-                                <input type="text" id="username-login-1" class="form-control" placeholder="Enter your name">
+                                <input type="text" id="username-login-1" name="user_email" class="form-control" placeholder="Enter your name">
                                 <label for="username-login-1">Username</label>
                               </div>
                               <!-- Password -->
                               <div class="form-group">
-                                <input type="password" id="pass-login-1" class="form-control" placeholder="Enter your password">
+                                <input type="password" id="pass-login-1" name="user_password" class="form-control" placeholder="Enter your password">
                                 <label for="pass-login-1">Password</label>
                                 <span class="pull-right"><a href="#" class="forget-pass-link">Forget password?</a></span>
                               </div>
                               <!-- Submit -->
-                              <input type="submit" value="Login" class="btn">
+                              <input type="submit" value="Login" name="login" class="btn">
                             </form>
                           </div><!-- / .form-wrapper -->
 
@@ -120,30 +120,30 @@
                         <div class="panel-body">
 
                           <div class="form-register">
-                            <form action="post">
+                            <form method="post" action="login.php">
                               <!-- First Name -->
                               <div class="form-group col-md-6 no-gap-left">
-                                <input type="text" id="name-login-1" class="form-control" placeholder="First Name">
+                                <input type="text" id="login_first_name" name="login_first_name" class="form-control" placeholder="First Name">
                                 <label for="name-login-1">First Name</label>
                               </div>
                               <!-- Last name -->
                               <div class="form-group col-md-6 no-gap-right">
-                                <input type="text" id="lastname-signup-1" class="form-control" placeholder="Last Name">
+                                <input type="text" id="login_last_name" name="login_last_name" class="form-control" placeholder="Last Name">
                                 <label for="last-name-signup-1">Last Name</label>
                               </div>
                               <!-- Email -->
                               <div class="form-group">
-                                <input type="email" id="email-signup-1" class="form-control" placeholder="Enter your email">
+                                <input type="email" id="login_input_email" name="login_input_email" class="form-control" placeholder="Enter your email">
                                 <label for="email-signup-1">Email</label>
                               </div>
                               <!-- Password -->
                               <div class="form-group">
-                                <input type="password" id="pass-signup-1" class="form-control" placeholder="Enter a password">
+                                <input type="password" id="login_input_password_new" name="login_input_password_new" class="form-control" placeholder="Enter a password">
                                 <label for="pass-signup-1">Password</label>
                               </div>
                               <!-- Re-Enter Password -->
                               <div class="form-group">
-                                <input type="password" id="re-pass-signup-1" class="form-control" placeholder="Re-enter your password">
+                                <input type="password" id="login_input_password_repeat" name="login_input_password_repeat" class="form-control" placeholder="Re-enter your password">
                                 <label for="re-pass-signup-1">Re-enter password</label>
                               </div>
                               <!-- Newsletter check -->
@@ -153,7 +153,7 @@
                                 </label>
                               </div>
                               <!-- Submit -->
-                              <input type="submit" value="Register" class="btn">
+                              <input type="submit" name="register" value="Register" class="btn">
                             </form>
                           </div><!-- / .form-wrapper -->
 

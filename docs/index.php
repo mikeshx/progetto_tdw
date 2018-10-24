@@ -4,8 +4,6 @@ ini_set('display_errors', 1);
 //dir Win - Linux
 require_once('require.php');
 
-
-
 //The real code starts here
 // Check for a minimum php version
 if (version_compare(PHP_VERSION, '5.3.7', '<')) {
