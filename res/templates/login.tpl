@@ -169,4 +169,4 @@
 
           </div><!-- / .bg-overlay -->
         </div><!-- / .bg-login -->
-{include file="footer.tpl"}
+{include file="smarty_common/footer.tpl"}

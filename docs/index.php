@@ -30,11 +30,11 @@ $mySmarty = new mySmarty();
 if ($login->isUserLoggedIn() == true) {
 
     // Assign a variable to smarty that will be displayed in the page
-    $mySmarty->assign('user_type', 'user');
+    // This is done to include the right user based on the user type
+    $mySmarty->assign('header', 'logged_user_header');
 
 } else {
-    // Assign a variable to smarty
-    $mySmarty->assign('user_type', 'visitor');
+    $mySmarty->assign('header', 'header');
 }
 
 // Render the template file

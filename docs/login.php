@@ -38,8 +38,8 @@ if (isset($registration)) {
 // If the user is alredy logged in, we can redirect him to the index page
 if ($login->isUserLoggedIn() == true) {
 
-    // Assign a variable to smarty that will be displayed in the page
-    $mySmarty->display(RES_DIR . '/templates/index.tpl');
+    // The login was successful, so we redirect the user to the home page
+    header("Location: index.php");
 
 } else {
     // The user is a visitor, we can show the login page

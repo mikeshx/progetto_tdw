@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="smarty_common/header.tpl"}
         <!-- ========== Page Title ========== -->
 
         <header class="page-title pt-large pt-dark pt-plax-lg-dark"
@@ -285,4 +285,4 @@
             </div><!-- / .row -->
           </div><!-- / .container -->
         </div><!-- / .gray-bg -->
-{include file="footer.tpl"}
+{include file="smarty_common/footer.tpl"}
