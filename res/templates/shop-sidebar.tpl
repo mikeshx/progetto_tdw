@@ -1,4 +1,6 @@
 {include file="smarty_common/header.tpl"}
+{include file="header.tpl"}
+
 
         <!-- ========== Page Title ========== -->
 
@@ -166,7 +168,12 @@
                 </div><!-- / .row -->
 
 
+
+
+
+                
                 <div class="row">
+                  {foreach $prodotti as $r}
                   <!-- Shop Product -->
                   <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
                     <div class="shop-product-card">
@@ -189,244 +196,31 @@
 
                       <!-- Product Meta -->
                       <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Casual Gray Blazer</h4></a>
+                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">{$r.nome}</h4></a>
                         <span class="product-sep"></span>
-                        <p class="product-price"><span class="price-cut">$287.99</span> $187.99</p>
+                        <p class="product-price"><span class="price-cut">{$r.prezzo}</span> $187.99</p>
                       </div>
 
                     </div><!-- / .shop-product-card -->
                   </div><!-- / .col-sm-3 -->
 
+                    {foreachelse}
+                    .. no results ..
 
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
+                  {/foreach}
+        
 
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 2"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 9"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">White Suit</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price">$487.99</p>
-                      </div>
 
                     </div><!-- / .shop-product-card -->
                   </div><!-- / .col-lg-3 -->
 
 
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 1"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 2"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Dark Blue Suit</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price">$487.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-lg-3 -->
 
 
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 7"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 4"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Gray Padded Jacket</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price">$487.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-lg-3 -->
-
-
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <span class="label label-red sale-label">SALE</span>
-
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 6"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 11"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Light Blue Blazer</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price"><span class="price-cut">$187.99</span> $97.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-sm-3 -->
-
-
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 8"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 1"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Dark Gray Blazer</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price">$115.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-lg-3 -->
-
-
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 10"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 2"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Black Jacket</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price">$127.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-sm-3 -->
-
-
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <span class="label label-red sale-label">SALE</span>
-
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 11"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 6"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Casual Blue Blazer</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price"><span class="price-cut">$250.99</span> $217.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-lg-3 -->
-
-
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 12"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 4"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Black Jacket</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price">$487.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-lg-3 -->
 
                 </div><!-- / .row -->
+
+
 
 
 
@@ -457,4 +251,6 @@
 
           </div><!-- / .contianer -->
         </div><!-- / .gray-bg -->
+		
 {include file="smarty_common/footer.tpl"}
+{include file="footer.tpl"}
