@@ -1,6 +1,9 @@
-{include file="smarty_common/header.tpl"}
 {include file="header.tpl"}
 
+{block name="js" append}
+  <script src="jquery.easyPaginate.js"></script>
+  <script src="prodotti.js"></script>
+{/block}
 
         <!-- ========== Page Title ========== -->
 
@@ -171,7 +174,7 @@
 
 
 
-                
+                <div id="easyPaginate">
                 <div class="row">
                   {foreach $prodotti as $r}
                   <!-- Shop Product -->
@@ -208,7 +211,7 @@
                     .. no results ..
 
                   {/foreach}
-        
+                </div>
 
 
                     </div><!-- / .shop-product-card -->
@@ -251,6 +254,4 @@
 
           </div><!-- / .contianer -->
         </div><!-- / .gray-bg -->
-		
-{include file="smarty_common/footer.tpl"}
 {include file="footer.tpl"}
