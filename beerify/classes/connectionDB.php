@@ -4,7 +4,7 @@ class Database
 {
     protected static $servername = "localhost";
     protected static $username = "root";
-    protected static $password = "";
+    protected static $password = "eden777";
     protected static $dbname = "beerify";
 
     /**

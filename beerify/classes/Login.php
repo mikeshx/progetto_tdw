@@ -67,7 +67,7 @@ class Login
 
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
-                $sql = "SELECT user_email, user_password_hash
+                $sql = "SELECT user_id, user_email, user_password_hash
                         FROM users
                         WHERE user_email = '" . $user_email. "';";
                 $result_of_login_check = $this->db_connection->query($sql);
@@ -84,7 +84,9 @@ class Login
 
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['user_email'] = $result_row->user_email;
+                        $_SESSION['user_id'] = $result_row->user_id;
                         $_SESSION['user_login_status'] = 1;
+
 
                     } else {
                         $this->errors[] = "Wrong password. Try again.";
@@ -119,5 +121,27 @@ class Login
         }
         // default return
         return false;
+    }
+
+    // Checks if a user has the role 'admin' in the database
+    public function checkAdmin($user_id) {
+
+      // Create a database connection, using the constants from config/db.php (which we loaded in index.php)
+      $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+      // Prepare and execute the query
+      if (!$this->db_connection->connect_errno) {
+        $sql = "SELECT ruolo, user_id
+                FROM users
+                WHERE ruolo = 'admin' AND user_id = '" . $user_id. "';";
+
+        $result_of_login_check = $this->db_connection->query($sql);
+
+        // Now we check if there was a result
+        if ($result_of_login_check->num_rows == 1) {
+           return true;
+        }
+        return false;
+      }
     }
 }

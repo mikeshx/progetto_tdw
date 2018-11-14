@@ -9,18 +9,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../res/templates/administration/assets/images/favicon.ico">
 
         <!--Morris Chart CSS -->
-        <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        <link rel="stylesheet" href="res/templates/administration/../res/templates/administration/assets/plugins/morris/morris.css">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/style.css" rel="stylesheet" type="text/css" />
 
-        <script src="assets/js/modernizr.min.js"></script>
+        <script src="../res/templates/administration/assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -37,10 +37,10 @@
                 <div class="topbar-left">
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="assets/images/logo.png" alt="">
+                            <img src="../res/templates/administration/assets/images/logo.png" alt="">
                         </span>
                         <i>
-                            <img src="assets/images/logo_sm.png" alt="">
+                            <img src="../res/templates/administration/assets/images/logo_sm.png" alt="">
                         </i>
                     </a>
                 </div>
@@ -134,7 +134,7 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Anderson <i class="mdi mdi-chevron-down"></i> </span>
+                                <img src="../res/templates/administration/assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Anderson <i class="mdi mdi-chevron-down"></i> </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
@@ -191,7 +191,7 @@
             <div class="left side-menu">
                 <div class="user-details">
                     <div class="pull-left">
-                        <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                        <img src="../res/templates/administration/assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
                     </div>
                     <div class="user-info">
                         <a href="#">Stanley Jones</a>
@@ -431,7 +431,7 @@
                                                         <label for="checkbox2"></label>
                                                     </div>
 
-                                                    <img src="assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                                    <img src="../res/templates/administration/assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -459,7 +459,7 @@
                                                         <label for="checkbox1"></label>
                                                     </div>
 
-                                                    <img src="assets/images/users/avatar-1.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                                    <img src="../res/templates/administration/assets/images/users/avatar-1.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -487,7 +487,7 @@
                                                         <label for="checkbox3"></label>
                                                     </div>
 
-                                                    <img src="assets/images/users/avatar-3.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                                    <img src="../res/templates/administration/assets/images/users/avatar-3.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -514,7 +514,7 @@
                                                         <label for="checkbox4"></label>
                                                     </div>
 
-                                                    <img src="assets/images/users/avatar-4.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                                    <img src="../res/templates/administration/assets/images/users/avatar-4.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -542,7 +542,7 @@
                                                         <label for="checkbox5"></label>
                                                     </div>
 
-                                                    <img src="assets/images/users/avatar-5.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                                    <img src="../res/templates/administration/assets/images/users/avatar-5.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -570,7 +570,7 @@
                                                         <label for="checkbox6"></label>
                                                     </div>
 
-                                                    <img src="assets/images/users/avatar-6.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
+                                                    <img src="../res/templates/administration/assets/images/users/avatar-6.jpg" alt="contact-img" title="contact-img" class="rounded-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -627,23 +627,23 @@
 
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/metisMenu.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="../res/templates/administration/assets/js/jquery.min.js"></script>
+        <script src="../res/templates/administration/assets/js/popper.min.js"></script>
+        <script src="../res/templates/administration/assets/js/bootstrap.min.js"></script>
+        <script src="../res/templates/administration/assets/js/metisMenu.min.js"></script>
+        <script src="../res/templates/administration/assets/js/waves.js"></script>
+        <script src="../res/templates/administration/assets/js/jquery.slimscroll.js"></script>
 
         <!--Morris Chart-->
-        <script src="assets/plugins/morris/morris.min.js"></script>
-        <script src="assets/plugins/raphael/raphael-min.js"></script>
+        <script src="../res/templates/administration/assets/plugins/morris/morris.min.js"></script>
+        <script src="../res/templates/administration/assets/plugins/raphael/raphael-min.js"></script>
 
         <!-- Dashboard init -->
-        <script src="assets/pages/jquery.dashboard.js"></script>
+        <script src="../res/templates/administration/assets/pages/jquery.dashboard.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="../res/templates/administration/assets/js/jquery.core.js"></script>
+        <script src="../res/templates/administration/assets/js/jquery.app.js"></script>
 
     </body>
 </html>

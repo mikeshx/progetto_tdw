@@ -20,23 +20,12 @@ require_once("classes/db.php");
 // Login class
 require_once("classes/Login.php");
 
-// Create a login object
-$login = new Login();
+// Check if we can access the administration page
+require('admin_check.php');
 
 // Initalize a smarty variable
 $mySmarty = new mySmarty();
 
-// Check if we are already logged in
-if ($login->isUserLoggedIn() == true) {
-
-    // Assign a variable to smarty that will be displayed in the page
-    // This is done to include the right user based on the user type
-    $mySmarty->assign('header', 'logged_user_header');
-
-} else {
-    $mySmarty->assign('header', 'header');
-}
-
 // Render the template file
-$mySmarty->display(RES_DIR . '/templates/index.tpl');
+$mySmarty->display(RES_DIR . '/templates/administration/index.tpl');
 ?>
