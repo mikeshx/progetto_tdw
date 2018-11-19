@@ -1,10 +1,4 @@
 {include file="header.tpl"}
-
-{block name="js" append}
-  <script src="jquery.easyPaginate.js"></script>
-  <script src="prodotti.js"></script>
-{/block}
-
         <!-- ========== Page Title ========== -->
 
         <header class="page-title pt-large pt-dark pt-plax-lg-dark"
@@ -158,7 +152,7 @@
                 <!-- Shop layout options -->
                 <div class="row mb-50">
                   <div class="col-xs-12 col-sm-6 col-md-9 mb-sm-30">
-                    <span>SHOWING 1–12 OF 24 RESULTS</span>
+                    <span>SHOWING 9 OF (DaDefinire) RESULTS</span>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-3 pull-right">
                     <select class="form-control" id="select-form">
@@ -173,56 +167,7 @@
 
 
 
-
-                <div id="easyPaginate">
-                <div class="row">
-                  {foreach $prodotti as $r}
-                  <!-- Shop Product -->
-                  <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
-                    <div class="shop-product-card">
-
-                      <!-- Image/Slider -->
-                      <div class="product-image-wrapper">
-                        <span class="label label-red sale-label">SALE</span>
-
-                        <!-- Product Actions (hover) -->
-                        <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                        <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                        <!-- Product Main Image -->
-                        <div class="shop-p-slider">
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 1"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 6"></a>
-                          <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 8"></a>
-                        </div>
-                      </div>
-
-                      <!-- Product Meta -->
-                      <div class="product-meta">
-                        <a href="../../pages/shop/shop-single.html"><h4 class="product-name">{$r.nome}</h4></a>
-                        <span class="product-sep"></span>
-                        <p class="product-price"><span class="price-cut">{$r.prezzo}</span> $187.99</p>
-                      </div>
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-sm-3 -->
-
-                    {foreachelse}
-                    .. no results ..
-
-                  {/foreach}
-                </div>
-
-
-                    </div><!-- / .shop-product-card -->
-                  </div><!-- / .col-lg-3 -->
-
-
-
-
-
-                </div><!-- / .row -->
-
+{include file="prodotti.tpl"}
 
 
 
