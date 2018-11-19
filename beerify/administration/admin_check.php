@@ -1,6 +1,10 @@
 <?php
 ini_set('display_errors', 1);
 
+require_once('../require.php');
+require_once("../classes/db.php");
+require_once('../classes/Login.php');
+
 // Create a login object
 $login = new Login();
 

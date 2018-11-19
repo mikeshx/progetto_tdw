@@ -9,16 +9,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../res/templates/administration/assets/images/favicon.ico">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="../res/templates/administration/assets/css/style.css" rel="stylesheet" type="text/css" />
 
 
-        <script src="assets/js/modernizr.min.js"></script>
+        <script src="../res/templates/administration/assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -35,10 +35,10 @@
                 <div class="topbar-left">
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="assets/images/logo.png" alt="">
+                            <img src="../res/templates/administration/assets/images/logo.png" alt="">
                         </span>
                         <i>
-                            <img src="assets/images/logo_sm.png" alt="">
+                            <img src="../res/templates/administration/assets/images/logo_sm.png" alt="">
                         </i>
                     </a>
                 </div>
@@ -132,7 +132,7 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Anderson <i class="mdi mdi-chevron-down"></i> </span>
+                                <img src="../res/templates/administration/assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Anderson <i class="mdi mdi-chevron-down"></i> </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
@@ -189,7 +189,7 @@
             <div class="left side-menu">
                 <div class="user-details">
                     <div class="pull-left">
-                        <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                        <img src="../res/templates/administration/assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
                     </div>
                     <div class="user-info">
                         <a href="#">Stanley Jones</a>
@@ -323,29 +323,29 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <form class="form-horizontal" role="form">
+                                        <form method="post" class="form-horizontal" role="form">
                                           <div class="form-group">
                                               <label class="col-sm-2 col-form-label">Product Name</label>
                                               <div class="col-sm-10">
-                                                  <input type="text" class="form-control" placeholder="insert product name">
+                                                  <input type="text" name="nome" class="form-control" placeholder="insert product name">
                                               </div>
                                           </div>
                                             <div class="form-group">
                                                 <label class="col-md-2 col-form-label">Description</label>
                                                 <div class="col-md-10">
-                                                    <textarea class="form-control" rows="5"></textarea>
+                                                    <textarea class="form-control" rows="5" name="descrizione"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 col-form-label">Price</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" placeholder="insert price">
+                                                    <input type="text" name="prezzo" class="form-control" placeholder="insert price">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-2 col-form-label">Quantity</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" placeholder="insert quantity">
+                                                    <input name="quantita" type="text" class="form-control" placeholder="insert quantity">
                                                 </div>
                                             </div>
 
@@ -353,7 +353,7 @@
                                                 <label class="control-label">Upload image</label>
                                                 <input type="file" class="filestyle" data-input="false">
                                             </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary" name="product_submit">Submit</button>
 
                                         </form>
                                     </div>
@@ -390,17 +390,17 @@
 
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/metisMenu.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js" type="text/javascript"></script>
+        <script src="../res/templates/administration/assets/js/jquery.min.js"></script>
+        <script src="../res/templates/administration/assets/js/popper.min.js"></script>
+        <script src="../res/templates/administration/assets/js/bootstrap.min.js"></script>
+        <script src="../res/templates/administration/assets/js/metisMenu.min.js"></script>
+        <script src="../res/templates/administration/assets/js/waves.js"></script>
+        <script src="../res/templates/administration/assets/js/jquery.slimscroll.js"></script>
+        <script src="../res/templates/administration/assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js" type="text/javascript"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="../res/templates/administration/assets/js/jquery.core.js"></script>
+        <script src="../res/templates/administration/assets/js/jquery.app.js"></script>
 
     </body>
 </html>

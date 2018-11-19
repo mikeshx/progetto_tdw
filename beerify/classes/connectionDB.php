@@ -27,6 +27,16 @@ class Database
         return $conn;
     }
 
+    public static function getPDOConnection()
+    {
+        try {
+            $conn = new PDO('mysql:host=' . self::$servername . ';dbname=' . self::$dbname, self::$username, self::$password);
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        return $conn;
+    }
+
     public static function closeConnection($conn)
     {
         mysqli_close($conn);
