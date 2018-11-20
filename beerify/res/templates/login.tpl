@@ -67,17 +67,35 @@
 
         <div class="login-1">
           <div class="bg-overlay">
-
             <div class="container">
               <div class="row">
                 <div class="col-md-offset-3 col-md-6">
 
-                  <!-- Log in -->
+                    <!-- Log in -->
                   <div class="panel-group" id="login-accordion" role="tablist" aria-multiselectable="true">
+
+                      {if !empty($errorMessages)}
+                          <div class="alert alert-danger" role="alert">
+                              {foreach from=$errorMessages item=item_error}
+                                  {$item_error} <br>
+                              {/foreach}
+                          </div>
+                      {/if}
+
+
+                      {if !empty($Messages)}
+                          <div class="alert alert-danger" role="alert">
+                              {foreach from=$Messages item=item_message}
+                                  {$item_message} <br>
+                              {/foreach}
+                          </div>
+                      {/if}
+
                     <div class="panel top-panel panel-default">
                       <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
                           <a role="button" data-toggle="collapse" data-parent="#login-accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
                             Login to your account
                           </a>
                         </h4>
@@ -109,6 +127,7 @@
 
                     <!-- Register Account -->
                     <div class="panel bottom-panel panel-default">
+
                       <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#login-accordion" href="#register-login-page-2" aria-expanded="false" aria-controls="register-login-page-2">

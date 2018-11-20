@@ -20,18 +20,31 @@ $registration = new Registration();
 // Instantiate the login and registration class, since the page is unique
 $login = new Login();
 
-// Check for errors in the registration page
-// TODO: remove errors in php and pass an array to smarty
+// Registration related error Messages
 if (isset($registration)) {
+
+    // Error masages handling
     if ($registration->errors) {
-        foreach ($registration->errors as $error) {
-            echo $error;
-        }
+        $mySmarty->assign('errorMessages', $registration->errors);
     }
+
+    // Messages handling
     if ($registration->messages) {
-        foreach ($registration->messages as $message) {
-            echo $message;
-        }
+        $mySmarty->assign('Messages', $registration->messages);
+    }
+}
+
+// Login related error messages
+if (isset($login)) {
+
+    // Login error masages handling
+    if ($login->errors) {
+        $mySmarty->assign('errorMessages', $login->errors);
+    }
+
+    // Login Messages handling
+    if ($login->messages) {
+        $mySmarty->assign('Messages', $login->messages);
     }
 }
 

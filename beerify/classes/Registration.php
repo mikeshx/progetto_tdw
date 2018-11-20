@@ -40,19 +40,31 @@ class Registration
             $this->errors[] = "Empty Password";
         }
 
-        elseif (empty($_POST['login_first_name'])) {
+        if (empty($_POST['login_first_name'])) {
             $this->errors[] = "First name is empty";
-        } elseif (empty($_POST['login_last_name'])) {
+        }
+
+        if (empty($_POST['login_last_name'])) {
             $this->errors[] = "Last name is empty";
-        } elseif ($_POST['login_input_password_new'] !== $_POST['login_input_password_repeat']) {
+        }
+
+        if ($_POST['login_input_password_new'] !== $_POST['login_input_password_repeat']) {
             $this->errors[] = "Password and password repeat are not the same";
-        } elseif (strlen($_POST['login_input_password_new']) < 6) {
+        }
+
+        if (strlen($_POST['login_input_password_new']) < 6) {
             $this->errors[] = "Password has a minimum length of 6 characters";
-        } elseif (empty($_POST['login_input_email'])) {
+        }
+
+        if (empty($_POST['login_input_email'])) {
             $this->errors[] = "Email cannot be empty";
-        } elseif (strlen($_POST['login_input_email']) > 64) {
+        }
+
+        if (strlen($_POST['login_input_email']) > 64) {
             $this->errors[] = "Email cannot be longer than 64 characters";
-        } elseif (!filter_var($_POST['login_input_email'], FILTER_VALIDATE_EMAIL)) {
+        }
+
+        if (!filter_var($_POST['login_input_email'], FILTER_VALIDATE_EMAIL)) {
             $this->errors[] = "Your email address is not in a valid email format";
         } elseif (!empty($_POST['login_input_email'])
             && strlen($_POST['login_input_email']) <= 64

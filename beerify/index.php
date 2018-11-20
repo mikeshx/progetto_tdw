@@ -33,12 +33,6 @@ if ($login->isUserLoggedIn() == true) {
     // This is done to include the right user based on the user type
     $mySmarty->assign('header', 'logged_user_header');
 
-    if ($login->checkAdmin(9) == true) {
-      echo "He's admin";
-    } else {
-      echo "He's not admin";
-    }
-
 } else {
     $mySmarty->assign('header', 'header');
 }
