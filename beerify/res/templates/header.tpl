@@ -24,6 +24,9 @@
         <!-- Range Slider -->
         <link rel="stylesheet" href="assets/styles/vendor/jquery-ui.min.css">
         <link rel="stylesheet" href="assets/styles/vendor/jquery-ui.structure.min.css">
+        <!-- Paginazione test -->
+        <link rel="stylesheet" href="assets/styles/vendor/myCssPagination.css">
+
 
 
         <!-- Definity CSS -->
