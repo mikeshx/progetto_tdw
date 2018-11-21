@@ -37,7 +37,7 @@ class Registration
     private function registerNewUser()
     {
         if (empty($_POST['login_input_password_new']) || empty($_POST['login_input_password_repeat'])) {
-            $this->errors[] = "Empty Password";
+            $this->errors[] = "Empty resetPassword";
         }
 
         if (empty($_POST['login_first_name'])) {
@@ -49,11 +49,11 @@ class Registration
         }
 
         if ($_POST['login_input_password_new'] !== $_POST['login_input_password_repeat']) {
-            $this->errors[] = "Password and password repeat are not the same";
+            $this->errors[] = "resetPassword and password repeat are not the same";
         }
 
         if (strlen($_POST['login_input_password_new']) < 6) {
-            $this->errors[] = "Password has a minimum length of 6 characters";
+            $this->errors[] = "resetPassword has a minimum length of 6 characters";
         }
 
         if (empty($_POST['login_input_email'])) {

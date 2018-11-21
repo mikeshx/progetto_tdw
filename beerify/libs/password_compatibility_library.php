@@ -27,7 +27,7 @@ if (!defined('PASSWORD_DEFAULT')) {
             return null;
         }
         if (!is_string($password)) {
-            trigger_error("password_hash(): Password must be a string", E_USER_WARNING);
+            trigger_error("password_hash(): resetPassword must be a string", E_USER_WARNING);
             return null;
         }
         if (!is_int($algo)) {

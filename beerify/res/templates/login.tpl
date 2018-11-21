@@ -110,7 +110,7 @@
                                 <input type="text" id="username-login-1" name="user_email" class="form-control" placeholder="Enter your name">
                                 <label for="username-login-1">Username</label>
                               </div>
-                              <!-- Password -->
+                              <!-- resetPassword -->
                               <div class="form-group">
                                 <input type="password" id="pass-login-1" name="user_password" class="form-control" placeholder="Enter your password">
                                 <label for="pass-login-1">Password</label>
@@ -155,12 +155,12 @@
                                 <input type="email" id="login_input_email" name="login_input_email" class="form-control" placeholder="Enter your email">
                                 <label for="email-signup-1">Email</label>
                               </div>
-                              <!-- Password -->
+                              <!-- resetPassword -->
                               <div class="form-group">
                                 <input type="password" id="login_input_password_new" name="login_input_password_new" class="form-control" placeholder="Enter a password">
                                 <label for="pass-signup-1">Password</label>
                               </div>
-                              <!-- Re-Enter Password -->
+                              <!-- Re-Enter resetPassword -->
                               <div class="form-group">
                                 <input type="password" id="login_input_password_repeat" name="login_input_password_repeat" class="form-control" placeholder="Re-enter your password">
                                 <label for="re-pass-signup-1">Re-enter password</label>

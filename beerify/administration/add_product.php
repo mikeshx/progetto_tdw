@@ -11,7 +11,6 @@ $product = new Prodotto('', '', '', '');
 // Insert product action
 if(isset($_POST['product_submit'])) {
     $product->insertProduct();
-    echo "test";
 }
 
 // Initalize a smarty variable

@@ -50,7 +50,7 @@ class Login
         }
 
         if (empty($_POST['user_password'])) {
-            $this->errors[] = "Password field was empty.";
+            $this->errors[] = "resetPassword field was empty.";
         }elseif (!empty($_POST['user_email']) && !empty($_POST['user_password'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)

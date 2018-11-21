@@ -41,37 +41,22 @@
                                     <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
                                 </div>
                                 <div class="account-content">
-                                    <form class="form-horizontal" action="#">
+                                    <div class="text-center m-b-20">
+                                        <p class="text-muted m-b-0 line-h-24">Enter your email address and we'll send you an email with instructions to reset your password.  </p>
+                                    </div>
+
+                                    <form class="form-horizontal" method="post" action="reset_password.php">
 
                                         <div class="form-group m-b-20">
                                             <div class="col-xs-12">
                                                 <label for="emailaddress">Email address</label>
-                                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="john@deo.com">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group m-b-20">
-                                            <div class="col-xs-12">
-                                                <a href="pages-forget-password.tpl" class="text-muted pull-right font-14">Forgot your password?</a>
-                                                <label for="password">Password</label>
-                                                <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group m-b-30">
-                                            <div class="col-xs-12">
-                                                <div class="checkbox checkbox-primary">
-                                                    <input id="checkbox5" type="checkbox">
-                                                    <label for="checkbox5">
-                                                        Remember me
-                                                    </label>
-                                                </div>
+                                                <input class="form-control" type="email" id="emailaddress" name="email" required="" placeholder="john@deo.com">
                                             </div>
                                         </div>
 
                                         <div class="form-group account-btn text-center m-t-10">
                                             <div class="col-xs-12">
-                                                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+                                                <button class="btn btn-lg btn-primary btn-block" type="submit">Reset Password</button>
                                             </div>
                                         </div>
 
@@ -86,7 +71,7 @@
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="pages-register.html" class="text-dark m-l-5">Sign Up</a></p>
+                                    <p class="text-muted">Back to <a href="pages-login.html" class="text-dark m-l-5">Sign In</a></p>
                                 </div>
                             </div>
 
@@ -99,7 +84,9 @@
         </section>
 
 
-        <!-- jQuery  -->
+
+
+    <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
