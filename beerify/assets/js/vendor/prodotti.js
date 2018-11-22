@@ -2,7 +2,7 @@ $(function () {
 
     $('#easyPaginate').easyPaginate({
         paginateElement: 'div.prodotto',
-        elementsPerPage: 6,
+        elementsPerPage: 9,
         effect: 'climb',
         firstButton: false,
         lastButton: false,
