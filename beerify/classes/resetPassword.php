@@ -23,9 +23,20 @@ class resetPassword
      */
     public function __construct()
     {
+
+        // Generate a token and send an email
         $email = isset($_POST['email']) ? trim($_POST['email']) : '';
         if ($email) {
             $this->generateToken($email);
+        }
+
+        // Token validation
+        $userId = isset($_GET['uid']) ? trim($_GET['uid']) : '';
+        $token = isset($_GET['t']) ? trim($_GET['t']) : '';
+        $passwordRequestId = isset($_GET['id']) ? trim($_GET['id']) : '';
+
+        if ($userId && $token && $passwordRequestId) {
+            $this->validateRequest($userId, $token, $passwordRequestId);
         }
     }
 
@@ -53,7 +64,7 @@ class resetPassword
         // If $userInfo is empty, it means that the submitted email
         // address has not been found in our users table.
         if(empty($userInfo)){
-            echo 'That email address was not found in our system!';
+            $errors[] = 'That email address was not found in our system!';
             exit;
         }
 
@@ -70,7 +81,7 @@ class resetPassword
 
         //The SQL statement.
         $insertSql = "INSERT INTO password_dimenticata
-                      (id, token, data_scadenza)
+                      (user_id, token, data_scadenza)
                       VALUES
                       (:user_id, :token, :date_requested)";
 
@@ -87,7 +98,6 @@ class resetPassword
         //Get the ID of the row we just inserted.
         $passwordRequestId = $pdo->lastInsertId();
 
-
         //Create a link to the URL that will verify the
         //forgot password request and allow the user to change their
         //password.
@@ -103,7 +113,7 @@ class resetPassword
     }
 
     // TODO: handle errors
-    function sendMail($to, $subject, $body) {
+    private function sendMail($to, $subject, $body) {
 
         $from = "unnamedgroup@univaq.it";
         $from_name = "Unnamed Group";
@@ -132,5 +142,79 @@ class resetPassword
             $messages[] = 'Email sent successfully';
             return true;
         }
+    }
+
+    // Checks is the request is valid and allow the user to change its password
+    private function validateRequest($userId, $token, $passwordRequestId) {
+
+        $pdo = Database::getPDOConnection();
+
+        //Now, we need to query our password_reset_request table and
+        //make sure that the GET variables we received belong to
+        //a valid forgot password request.
+
+        $sql = "SELECT * FROM password_dimenticata WHERE user_id = :user_id AND token = :token AND id = :id";
+
+        //Prepare our statement.
+        $statement = $pdo->prepare($sql);
+
+        //Execute the statement using the variables we received.
+        $statement->execute(array(
+            "user_id" => $userId,
+            "id" => $passwordRequestId,
+            "token" => $token
+        ));
+
+        //Fetch our result as an associative array.
+        $requestInfo = $statement->fetch(PDO::FETCH_ASSOC);
+
+        //If $requestInfo is empty, it means that this
+        //is not a valid forgot password request. i.e. Somebody could be
+        //changing GET values and trying to hack our
+        //forgot password system.
+        if(empty($requestInfo)){
+            $errors[] = "Invalid request";
+            exit;
+        }
+
+        // If the date of the request is older than 5 minutes, we consider it expired
+        $now = strtotime("-5 minutes");
+        $old_time = strtotime($requestInfo['data_scadenza']);
+
+        if ($now > $old_time) {
+            $errors[] = "Date expired, please provide a new request";
+            $this->deleteResetRequest($passwordRequestId);
+            exit;
+        }
+
+        //The request is valid, so give them a session variable
+        //that gives them access to the reset password form.
+        $_SESSION['user_id_reset_pass'] = $userId;
+
+        // store current timestamp in session, we will check later if it has expired
+        $_SESSION['user_id_reset_pass_time'] = time();
+
+        //Redirect them to your reset password form.
+        //header('Location: create-password.php');
+        exit;
+    }
+
+    // Delete an expired reset request
+    private function deleteResetRequest($requestId) {
+
+        try {
+            $conn = Database::getPDOConnection();
+            $sql = "DELETE FROM password_dimenticata WHERE id =  :requestId";
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindParam(':requestId',$requestId,PDO::PARAM_INT);
+            $stmt->execute();
+        }
+        catch(PDOException $e)
+        {
+            $errors[] = $sql . "<br>" . $e->getMessage();
+        }
+
+        $conn = null;
     }
 }
