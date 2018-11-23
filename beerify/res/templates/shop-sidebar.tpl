@@ -51,13 +51,6 @@
                       <p class="cp-price">1 x $359.99</p>
                     </div>
 
-                    <div class="cart-item">
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/56x56" alt="Product Name" class="p-thumb"></a>
-                      <a href="#" class="cart-remove-btn"><span class="linea-arrows-square-remove"></span></a>
-                      <a href="../../pages/shop/shop-single.html" class="cp-name">Dark Blue Suit</a>
-                      <p class="cp-price">1 x $459.99</p>
-                    </div>
-
                     <div class="cw-subtotal">
                       <h6 class="h-alt">SUBTOTAL: $718.98</h6>
                       <a href="../../pages/shop/shop-checkout.html" class="btn-ghost btn-small">View Cart</a>
@@ -74,28 +67,6 @@
                       <input type="text" id="shop-slider-range-amount" readonly>
                     </p>
                   </div><!-- / .filter-widget -->
-
-
-                  <!-- Categories - Widget -->
-                  <div class="shop-widget categories-widget">
-                    <h5 class="header-widget">Shop Categories</h5>
-                    <!-- Item 1 -->
-                    <div class="widget-item">
-                      <a href="#">Suits - <span>15</span></a>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="widget-item">
-                      <a href="#">T-Shirts - <span>6</span></a>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="widget-item">
-                      <a href="#">Pants - <span>12</span></a>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="widget-item">
-                      <a href="#">Accessories - <span>3</span></a>
-                    </div>
-                  </div><!-- / .categories-widget -->
 
 
                   <!-- Product - Widget -->
@@ -131,13 +102,11 @@
                   <div class="shop-widget tags-widget">
                     <h5 class="header-widget">Tags</h5>
                     <ul class="tag-list">
-                      <li><a href="#">Photography</a></li>
-                      <li><a href="#">Design</a></li>
-                      <li><a href="#">Development</a></li>
-                      <li><a href="#">PHP</a></li>
-                      <li><a href="#">UI/UX</a></li>
-                      <li><a href="#">Design</a></li>
-                      <li><a href="#">HTML5</a></li>
+                      {foreach $tag as $r}
+                        <li><a href="#">{$r.id}</a></li>
+                        {foreachelse}
+                        <li>.. No result ..</li>
+                      {/foreach}
                     </ul>
                   </div>
 
@@ -152,14 +121,13 @@
                 <!-- Shop layout options -->
                 <div class="row mb-50">
                   <div class="col-xs-12 col-sm-6 col-md-9 mb-sm-30">
-                    <span>SHOWING 9 OF (DaDefinire) RESULTS</span>
+                    <span>SHOWING {$n_r} OF {$n_tot} RESULTS</span>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-3 pull-right">
                     <select class="form-control" id="select-form">
                       <option>Default Sorting</option>
                       <option>Highest Price</option>
                       <option>Lowset Price</option>
-                      <option>Newest First</option>
                     </select>
                   </div>
                 </div><!-- / .row -->
@@ -167,32 +135,10 @@
 
 
 
-{include file="prodotti.tpl"}
+              {include file="prodotti.tpl"}
 
 
 
-
-                <!-- Pagination -->
-                <div class="row">
-                  <nav class="blog-pagination text-center">
-                    <ul class="pagination">
-                      <li>
-                        <a href="#" aria-label="Previous">
-                          <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
-                        </a>
-                      </li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">...</a></li>
-                      <li><a href="#">7</a></li>
-                      <li>
-                        <a href="#" aria-label="Next">
-                          <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div><!-- / .row -->
 
               </div><!-- / .col-md-9 -->
             </div><!-- / .row -->

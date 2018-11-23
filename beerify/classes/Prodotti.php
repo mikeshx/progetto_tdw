@@ -95,9 +95,10 @@ class Prodotto {
         return $prodotti;
     }
 
-    public static function getNumberRows()
+    /* All products order by high price */
+    public static function getAllProdottiHighPrice()
     {
-        $sql = "SELECT COUNT(id) FROM prodotti";
+        $sql = "SELECT * FROM prodotti ORDER BY prezzo DESC";
 
         $conn = Database::getConnection();
         // prepare and bind
@@ -105,7 +106,74 @@ class Prodotto {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result;
+        $prodotti = array();
+
+
+        while ($row = $result->fetch_assoc()) {
+            $prodotti[] = $row;
+        }
+        $stmt->close();
+        Database::closeConnection($conn);
+
+        return $prodotti;
+    }
+
+    /* All products order by Low Price*/
+    public static function getAllProdottiLowPrice()
+    {
+        $sql = "SELECT * FROM prodotti ORDER BY prezzo";
+
+        $conn = Database::getConnection();
+        // prepare and bind
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $prodotti = array();
+
+
+        while ($row = $result->fetch_assoc()) {
+            $prodotti[] = $row;
+        }
+        $stmt->close();
+        Database::closeConnection($conn);
+
+        return $prodotti;
+    }
+
+    /* Number of products */
+    public static function getNumberRows()
+    {
+        $conn = Database::getConnection();
+
+        if($result = $conn->query("SELECT * FROM prodotti")) {
+            $row_cnt = $result->num_rows;
+            $result->close();
+            return $row_cnt;
+        }
+    }
+
+    /* Get Tags */
+    public static function getAllTags()
+    {
+        $sql = "SELECT * FROM tag";
+
+        $conn = Database::getConnection();
+        // prepare and bind
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $tag = array();
+
+
+        while ($row = $result->fetch_assoc()) {
+            $tag[] = $row;
+        }
+        $stmt->close();
+        Database::closeConnection($conn);
+
+        return $tag;
     }
 
     /* Add a new product */
