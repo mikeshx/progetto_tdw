@@ -53,6 +53,7 @@
 
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="assets/js/vendor/jquery.easyPaginate.js"></script>
+<script src="assets/js/vendor/sortPrice.js"></script>
 <script src="assets/js/vendor/prodotti.js"></script>
 <script src="assets/js/vendor/google-fonts.js"></script>
 <script src="assets/js/vendor/jquery.easing.js"></script>

@@ -11,8 +11,8 @@
                   <span class="subheading">Shop layout with sidebar</span>
                 </div>
                 <ol class="col-sm-6 text-right breadcrumb">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Elements</a></li>
+                  <li><a href="index.php">Home</a></li>
+                  <li><a href="shop.php">Elements</a></li>
                   <li class="active">Shop</li>
                 </ol>
 
@@ -53,7 +53,7 @@
 
                     <div class="cw-subtotal">
                       <h6 class="h-alt">SUBTOTAL: $718.98</h6>
-                      <a href="../../pages/shop/shop-checkout.html" class="btn-ghost btn-small">View Cart</a>
+                      <a href="shop-checkout.php" class="btn-ghost btn-small">View Cart</a>
                     </div>
                   </div><!-- / .cart-widget -->
 
@@ -121,13 +121,13 @@
                 <!-- Shop layout options -->
                 <div class="row mb-50">
                   <div class="col-xs-12 col-sm-6 col-md-9 mb-sm-30">
-                    <span>SHOWING {$n_r} OF {$n_tot} RESULTS</span>
+                    <span> {$n_tot} RESULTS</span>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-3 pull-right">
-                    <select class="form-control" id="select-form">
-                      <option>Default Sorting</option>
-                      <option>Highest Price</option>
-                      <option>Lowset Price</option>
+                    <select class="price-sorting type-regular form-control" id="select-form" name="price-sorting">
+                      <option selected disabled>Default</option>
+                      <option value="l2h">Low to high</option>
+                      <option value="h2l">High to low</option>
                     </select>
                   </div>
                 </div><!-- / .row -->

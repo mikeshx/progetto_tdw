@@ -1,11 +1,11 @@
 <!doctype html>
 
-    <div class="row">
+    <div class="row products-grid">
 
         <div id="easyPaginate">
             <!-- Shop Product -->
             {foreach $prodotti as $r}
-                <div class="prodotto">
+                <div class="prodotto" data-price={$r.prezzo}>
                     <div class="col-xs-12 col-sm-6 col-lg-4 mb-30">
                         <div class="shop-product-card">
                             <!-- Image/Slider -->
@@ -35,5 +35,3 @@
             {/foreach}
         </div>
     </div>
-
-
