@@ -7,6 +7,8 @@ require_once('require.php');
 
 require('classes/resetPassword.php');
 
+session_start();
+
 $resetPassword = new resetPassword();
 
 // resetPassword related error Messages

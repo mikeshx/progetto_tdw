@@ -38,6 +38,29 @@ class resetPassword
         if ($userId && $token && $passwordRequestId) {
             $this->validateRequest($userId, $token, $passwordRequestId);
         }
+
+        // Update password action
+        if (isset($_POST['update_password'])) {
+
+            $pwd = $_POST['new_password'];
+            $pwd_repeat = $_POST['new_password_repeat'];
+
+            // Check if the passwords are the same
+            // The strcmp function returns 0 if the strings are equal
+            if (strcmp($pwd,$pwd_repeat) != 0) {
+                $errors[] = "Passwords are not equal";
+                exit;
+            }
+
+            $this->updatePassword($pwd, $_SESSION['user_id_reset_pass']);
+
+            // Unset the session variables to avoid undesired actions
+            // and redirect the user to the login page
+            unset ($_SESSION["user_id_reset_pass_time"]);
+            unset ($_SESSION["user_id_reset_pass"]);
+
+            header('Location: login.php');
+        }
     }
 
     /** Handles the generation of the reset password link (token) */
@@ -101,14 +124,12 @@ class resetPassword
         //Create a link to the URL that will verify the
         //forgot password request and allow the user to change their
         //password.
-        $verifyScript = 'https://localhost/recover_password.php';
+        $verifyScript = 'http://localhost/beerify/reset_password.php';
 
         //The link that we will send the user via email.
         $linkToSend = $verifyScript . '?uid=' . $userId . '&id=' . $passwordRequestId . '&t=' . $token;
 
         $this->sendMail($email, "Password reset", $linkToSend);
-
-        echo $linkToSend;
 
     }
 
@@ -173,7 +194,7 @@ class resetPassword
         //changing GET values and trying to hack our
         //forgot password system.
         if(empty($requestInfo)){
-            $errors[] = "Invalid request";
+            echo "Invalid request";
             exit;
         }
 
@@ -182,7 +203,7 @@ class resetPassword
         $old_time = strtotime($requestInfo['data_scadenza']);
 
         if ($now > $old_time) {
-            $errors[] = "Date expired, please provide a new request";
+            echo "Date expired, please provide a new request";
             $this->deleteResetRequest($passwordRequestId);
             exit;
         }
@@ -194,8 +215,8 @@ class resetPassword
         // store current timestamp in session, we will check later if it has expired
         $_SESSION['user_id_reset_pass_time'] = time();
 
-        //Redirect them to your reset password form.
-        //header('Location: create-password.php');
+        header('Location: change_password.php');
+
         exit;
     }
 
@@ -216,5 +237,27 @@ class resetPassword
         }
 
         $conn = null;
+    }
+
+    private function updatePassword($user_pass, $userID) {
+
+        $user_pass = password_hash($user_pass, PASSWORD_DEFAULT);
+
+        try {
+            $conn = Database::getPDOConnection();
+            $sql = "UPDATE users SET user_password_hash = :hashed_password WHERE users.user_id = :userid";
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindParam(':hashed_password',$user_pass);
+            $stmt->bindParam(':userid', $userID);
+            $stmt->execute();
+        }
+        catch(PDOException $e)
+        {
+            $errors[] = $sql . "<br>" . $e->getMessage();
+        }
+
+        $conn = null;
+
     }
 }

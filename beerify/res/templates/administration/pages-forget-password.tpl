@@ -9,15 +9,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="res/templates/administration/assets/images/favicon.ico">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="res/templates/administration/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="res/atemplates/administration/assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="res/templates/administration/assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="res/templates/administration/assets/css/style.css" rel="stylesheet" type="text/css" />
 
-        <script src="assets/js/modernizr.min.js"></script>
+        <script src="res/templates/administration/assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -35,7 +35,7 @@
                                 <div class="text-center">
                                     <h2 class="text-uppercase m-t-0 m-b-30">
                                         <a href="index.html" class="text-success">
-                                            <span><img src="assets/images/logo.png" alt="" height="30"></span>
+                                            <span><img src="res/templates/administration/assets/images/logo.png" alt="" height="30"></span>
                                         </a>
                                     </h2>
                                     <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
@@ -87,16 +87,16 @@
 
 
     <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/metisMenu.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="res/templates/administration/assets/js/jquery.min.js"></script>
+        <script src="res/templates/administration/assets/js/popper.min.js"></script>
+        <script src="res/templates/administration/assets/js/bootstrap.min.js"></script>
+        <script src="res/templates/administration/assets/js/metisMenu.min.js"></script>
+        <script src="res/templates/administration/assets/js/waves.js"></script>
+        <script src="res/templates/administration/assets/js/jquery.slimscroll.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="res/templates/administration/assets/js/jquery.core.js"></script>
+        <script src="res/templates/administration/assets/js/jquery.app.js"></script>
 
     </body>
 </html>

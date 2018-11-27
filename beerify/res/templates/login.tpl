@@ -114,7 +114,7 @@
                               <div class="form-group">
                                 <input type="password" id="pass-login-1" name="user_password" class="form-control" placeholder="Enter your password">
                                 <label for="pass-login-1">Password</label>
-                                <span class="pull-right"><a href="#" class="forget-pass-link">Forget password?</a></span>
+                                <span class="pull-right"><a href="reset_password.php" class="forget-pass-link">Forget password?</a></span>
                               </div>
                               <!-- Submit -->
                               <input type="submit" value="Login" name="login" class="btn">
