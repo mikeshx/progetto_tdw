@@ -27,7 +27,13 @@ class resetPassword
         // Generate a token and send an email
         $email = isset($_POST['email']) ? trim($_POST['email']) : '';
         if ($email) {
-            $this->generateToken($email);
+
+            // Check if the user ahs made another request
+            if ($this->checkDuplicates($email)) {
+                $this->errors[] = "You have already requested a password reset";
+            } else {
+                $this->generateToken($email);
+            }
         }
 
         // Token validation
@@ -48,7 +54,7 @@ class resetPassword
             // Check if the passwords are the same
             // The strcmp function returns 0 if the strings are equal
             if (strcmp($pwd,$pwd_repeat) != 0) {
-                $errors[] = "Passwords are not equal";
+                $this->errors[] = "Passwords are not equal";
                 exit;
             }
 
@@ -87,8 +93,8 @@ class resetPassword
         // If $userInfo is empty, it means that the submitted email
         // address has not been found in our users table.
         if(empty($userInfo)){
-            $errors[] = 'That email address was not found in our system!';
-            exit;
+            $this->errors[] = 'That email address was not found in our system!';
+            return false;
         }
 
         // The user's email address and id.
@@ -157,10 +163,10 @@ class resetPassword
         $mail->AddAddress($to);
 
         if(!$mail->Send()) {
-            $errors[] = 'errore mail: '.$mail->ErrorInfo;
+            $this->errors[] = 'errore mail: '.$mail->ErrorInfo;
             return false;
         } else {
-            $messages[] = 'Email sent successfully';
+            $this->messages[] = 'Email sent successfully';
             return true;
         }
     }
@@ -233,9 +239,8 @@ class resetPassword
         }
         catch(PDOException $e)
         {
-            $errors[] = $sql . "<br>" . $e->getMessage();
+            $this->errors[] = $sql . "<br>" . $e->getMessage();
         }
-
         $conn = null;
     }
 
@@ -254,10 +259,35 @@ class resetPassword
         }
         catch(PDOException $e)
         {
-            $errors[] = $sql . "<br>" . $e->getMessage();
+            $this->errors[] = $sql . "<br>" . $e->getMessage();
         }
 
         $conn = null;
+    }
 
+    /** Check if the user is trying to make multiple requests with the same email */
+    public function checkDuplicates($user_email) {
+        try {
+            $conn = Database::getPDOConnection();
+            $sql = "SELECT users.user_email
+                    FROM users
+                    INNER JOIN password_dimenticata ON users.user_id=password_dimenticata.user_id 
+                    AND users.user_email = :user_email";
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindParam(':user_email',$user_email);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch(PDOException $e)
+        {
+            $this->errors[] = $sql . "<br>" . $e->getMessage();
+        }
+        $conn = null;
     }
 }

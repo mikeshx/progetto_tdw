@@ -11,21 +11,21 @@ session_start();
 
 $resetPassword = new resetPassword();
 
+// Initalize a smarty variable
+$mySmarty = new mySmarty();
+
 // resetPassword related error Messages
 if (isset($resetPassword)) {
 
     // Error masages handling
     if ($resetPassword->errors) {
-        $mySmarty->assign('errorMessages', $registration->errors);
+        $mySmarty->assign('errorMessages', $resetPassword->errors);
     }
 
     // Messages handling
     if ($resetPassword->messages) {
-        $mySmarty->assign('Messages', $registration->messages);
+        $mySmarty->assign('Messages', $resetPassword->messages);
     }
 }
-
-// Initalize a smarty variable
-$mySmarty = new mySmarty();
 
 $mySmarty->display(RES_DIR . 'templates/administration/pages-forget-password.tpl');

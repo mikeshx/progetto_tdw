@@ -31,6 +31,24 @@
 
                         <div class="wrapper-page">
 
+                            {if !empty($errorMessages)}
+                                <div class="alert alert-danger" role="alert">
+                                    {foreach from=$errorMessages item=item_error}
+                                        {$item_error} <br>
+                                    {/foreach}
+                                </div>
+                            {/if}
+
+
+                            {if !empty($Messages)}
+                                <div class="alert alert-success" role="alert">
+                                    {foreach from=$Messages item=item_message}
+                                        {$item_message} <br>
+                                    {/foreach}
+                                </div>
+                            {/if}
+
+
                             <div class="m-t-40 card-box">
                                 <div class="text-center">
                                     <h2 class="text-uppercase m-t-0 m-b-30">
@@ -50,7 +68,7 @@
                                         <div class="form-group m-b-20">
                                             <div class="col-xs-12">
                                                 <label for="emailaddress">Email address</label>
-                                                <input class="form-control" type="email" id="emailaddress" name="email" required="" placeholder="john@deo.com">
+                                                <input class="form-control" type="email" id="emailaddress" name="email" required="" placeholder="example@univaq.it">
                                             </div>
                                         </div>
 
@@ -71,7 +89,7 @@
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Back to <a href="pages-login.html" class="text-dark m-l-5">Sign In</a></p>
+                                    <p class="text-muted">Back to <a href="login.php" class="text-dark m-l-5">Sign In</a></p>
                                 </div>
                             </div>
 
