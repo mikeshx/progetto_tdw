@@ -48,6 +48,13 @@ if (isset($login)) {
     }
 }
 
+// Reset password message
+if(!empty($_SESSION['password_updated_message']))
+{
+    $mySmarty->assign('Messages', $_SESSION['password_updated_message']);
+    unset($_SESSION['password_updated_message']);
+}
+
 // If the user is alredy logged in, we can redirect him to the index page
 if ($login->isUserLoggedIn() == true) {
 

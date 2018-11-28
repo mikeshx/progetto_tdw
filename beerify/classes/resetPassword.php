@@ -60,6 +60,11 @@ class resetPassword
 
             $this->updatePassword($pwd, $_SESSION['user_id_reset_pass']);
 
+            // Before redirecting the user to the new page
+            // we delete the current record from the db to make
+            // sure he can't access the change password page more than once
+            $this->deleteResetRequest($_SESSION["user_id_reset_pass"]);
+
             // Unset the session variables to avoid undesired actions
             // and redirect the user to the login page
             unset ($_SESSION["user_id_reset_pass_time"]);
@@ -107,8 +112,6 @@ class resetPassword
 
         // Insert the request information
         // Into our password_reset_request table.
-
-        //The SQL statement.
         $insertSql = "INSERT INTO password_dimenticata
                       (user_id, token, data_scadenza)
                       VALUES
@@ -134,12 +137,11 @@ class resetPassword
 
         //The link that we will send the user via email.
         $linkToSend = $verifyScript . '?uid=' . $userId . '&id=' . $passwordRequestId . '&t=' . $token;
-
         $this->sendMail($email, "Password reset", $linkToSend);
 
     }
 
-    // TODO: handle errors
+    /** Sends an email with the reset password link */
     private function sendMail($to, $subject, $body) {
 
         $from = "unnamedgroup@univaq.it";
@@ -171,7 +173,7 @@ class resetPassword
         }
     }
 
-    // Checks is the request is valid and allow the user to change its password
+    /** Check if the user is allowed to change his password */
     private function validateRequest($userId, $token, $passwordRequestId) {
 
         $pdo = Database::getPDOConnection();
@@ -179,7 +181,6 @@ class resetPassword
         //Now, we need to query our password_reset_request table and
         //make sure that the GET variables we received belong to
         //a valid forgot password request.
-
         $sql = "SELECT * FROM password_dimenticata WHERE user_id = :user_id AND token = :token AND id = :id";
 
         //Prepare our statement.
@@ -210,7 +211,7 @@ class resetPassword
 
         if ($now > $old_time) {
             echo "Date expired, please provide a new request";
-            $this->deleteResetRequest($passwordRequestId);
+            $this->deleteResetRequest($userId);
             exit;
         }
 
@@ -221,20 +222,20 @@ class resetPassword
         // store current timestamp in session, we will check later if it has expired
         $_SESSION['user_id_reset_pass_time'] = time();
 
+        // Redirect to the new page
         header('Location: change_password.php');
-
         exit;
     }
 
-    // Delete an expired reset request
-    private function deleteResetRequest($requestId) {
+    /** Delete a reset request from the db */
+    private function deleteResetRequest($userId) {
 
         try {
             $conn = Database::getPDOConnection();
-            $sql = "DELETE FROM password_dimenticata WHERE id =  :requestId";
+            $sql = "DELETE FROM password_dimenticata WHERE user_id = :userId";
             $stmt = $conn->prepare($sql);
 
-            $stmt->bindParam(':requestId',$requestId,PDO::PARAM_INT);
+            $stmt->bindParam(':userId',$userId,PDO::PARAM_INT);
             $stmt->execute();
         }
         catch(PDOException $e)
@@ -244,6 +245,7 @@ class resetPassword
         $conn = null;
     }
 
+    /** Update the password of a user */
     private function updatePassword($user_pass, $userID) {
 
         $user_pass = password_hash($user_pass, PASSWORD_DEFAULT);
@@ -263,6 +265,10 @@ class resetPassword
         }
 
         $conn = null;
+
+        // The password has been updated correctly
+        // Set a session variable to show a message on the login page
+        $_SESSION['password_updated_message'] = "Password updated correctly";
     }
 
     /** Check if the user is trying to make multiple requests with the same email */

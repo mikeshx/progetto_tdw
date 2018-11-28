@@ -84,7 +84,7 @@
 
 
                       {if !empty($Messages)}
-                          <div class="alert alert-danger" role="alert">
+                          <div class="alert alert-success" role="alert">
                               {foreach from=$Messages item=item_message}
                                   {$item_message} <br>
                               {/foreach}
