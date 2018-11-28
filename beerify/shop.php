@@ -16,9 +16,6 @@ foreach ($params as $key => $params){
 
 /* Numero di elementi nella pagina */
 $n_row = Prodotto::getNumberRows();
-if($n_row <= 9){
-    $mySmarty->assign('n_r', $n_row);
-} else $mySmarty->assign('n_r', 9);
 $mySmarty->assign('n_tot', $n_row);
 
 /* Richiesta tags DB */
