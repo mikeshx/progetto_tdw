@@ -1,6 +1,7 @@
 {include file="smarty_common/header.tpl"}
-        <!-- ========== Page Title ========== -->
 
+{foreach $prodotti as $r}
+        <!-- ========== Page Title ========== -->
         <header class="page-title pt-large pt-dark pt-plax-lg-dark"
         data-stellar-background-ratio="0.4">
           <div class="container">
@@ -11,9 +12,9 @@
                   <span class="subheading">Single Product Page</span>
                 </div>
                 <ol class="col-sm-6 text-right breadcrumb">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Elements</a></li>
-                  <li class="active">Shop</li>
+                  <li><a href="index.php">Home</a></li>
+                  <li><a href="shop.php">Shop</a></li>
+                  <li class="active"><a href="shop-single.php?newId={$r.id}">{$r.nome}</a></li>
                 </ol>
 
               </div>
@@ -29,8 +30,7 @@
 
             <div class="col-md-12">
               <ul class="product-meta">
-                <li>SKU: 5471</li>
-                <li>CATEOGRY: <a href="#">Suits</a></li>
+                <li>COD: {$r.id}</li>
                 <li>TAGS: <a href="#">Suits</a>, <a href="#">Man</a></li>
               </ul>
             </div>
@@ -55,12 +55,10 @@
 
             <!-- Product Description -->
             <div class="col-md-5 product-info">
-              <span class="prod-cat">Man Suits</span>
-              <h1 class="prod-name">Navy Blue Suit</h1>
-              <h3 class="prod-price">$357.99 <span class="price-cut">$457.99</span></h3>
+              <h1 class="prod-name">{$r.nome}</h1>
+              <h3 class="prod-price"> {$r.prezzo} € litro </h3> <!-- <span class="price-cut">$457.99</span> -->
               <p class="prod-desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                {$r.descrizione}
               </p>
               <ul class="prod-rating">
                 <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -72,12 +70,9 @@
               </ul>
 
               <div class="prod-size">
-                <h5>UK Size</h5>
+                <h5>Quantità</h5>
                 <ul class="sizes">
-                  <li><a href="#">S</a></li>
-                  <li><a href="#" class="size-btn-active">M</a></li>
-                  <li><a href="#">L</a></li>
-                  <li><a href="#">XL</a></li>
+                  <div class="quantity"> <input type="text" name="quantity" maxlength="2" size="2" value="1" style="text-align:center;"><br> </div>
                 </ul>
               </div>
 
@@ -95,7 +90,6 @@
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#tab-description" aria-controls="tab-description" role="tab" data-toggle="tab">Description</a></li>
-                <li role="presentation"><a href="#tab-sizeguide" aria-controls="tab-sizeguide" role="tab" data-toggle="tab">Size Guide</a></li>
                 <li role="presentation"><a href="#tab-reviews" aria-controls="tab-reviews" role="tab" data-toggle="tab">Reviews</a></li>
                 <li role="presentation"><a href="#tab-help" aria-controls="tab-help" role="tab" data-toggle="tab">How to buy</a></li>
               </ul>
@@ -104,38 +98,9 @@
               <div class="tab-content">
                 <!-- Item Description -->
                 <div role="tabpanel" class="tab-pane active" id="tab-description">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti numquam, consequuntur omnis minus dicta cum officia ut adipisci, velit corrupti ullam, consectetur praesentium? In, quae tempore alias provident ducimus incidunt quos! Numquam illum necessitatibus provident ratione sunt debitis, officia, consectetur maiores placeat dolores aperiam eveniet repellendus pariatur reprehenderit explicabo rerum assumenda expedita, recusandae eligendi voluptas dolorum ipsum quaerat iste temporibus! Blanditiis eveniet harum officia architecto.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus blanditiis nostrum delectus quod, maxime inventore omnis accusamus facere nulla debitis unde accusantium quibusdam similique, veritatis id ipsa! Quos, sequi. Adipisci necessitatibus quia voluptatem ducimus laborum quidem temporibus quod! Illo, autem?</p>
+                  <p>{$r.descrizione}</p>
+
                 </div>
-
-                <!-- Size Guide -->
-                <div role="tabpanel" class="tab-pane" id="tab-sizeguide">
-                  <table class="table table-row-highlight">
-                    <thead>
-                      <tr>
-                        <th>Size</th>
-                        <th>Short</th>
-                        <th>Regular</th>
-                        <th>Long</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>UK (Inches)</td>
-                        <td>30</td>
-                        <td>32</td>
-                        <td>34</td>
-                      </tr>
-
-                      <tr>
-                        <td>EURO (CM)</td>
-                        <td>76</td>
-                        <td>81</td>
-                        <td>86</td>
-                      </tr>
-                    </tbody>
-                  </table><!-- / .table -->
-                </div><!-- / .tab-pane #tab-sizeguide -->
 
                 <!-- Reviews -->
                 <div role="tabpanel" class="tab-pane prod-reviews" id="tab-reviews">
@@ -226,135 +191,8 @@
             </div>
           </div>
         </div><!-- / .container -->
+{/foreach}
 
 
 
-        <!-- ========== Related Items - (products section) ========== -->
-
-        <div class="gray-bg">
-          <div class="container section">
-
-            <div class="row">
-              <header class="sec-heading">
-                <h2>Related Products</h2>
-              </header>
-
-              <!-- Shop Product -->
-              <div class="col-xs-12 col-sm-6 col-lg-3">
-                <div class="shop-product-card">
-
-                  <!-- Image/Slider -->
-                  <div class="product-image-wrapper">
-                    <span class="label label-red sale-label">SALE</span>
-
-                    <!-- Product Actions (hover) -->
-                    <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                    <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                    <!-- Product Main Image -->
-                    <div class="shop-p-slider">
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 1"></a>
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 6"></a>
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 8"></a>
-                    </div>
-                  </div>
-
-                  <!-- Product Meta -->
-                  <div class="product-meta">
-                    <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Casual Gray Blazer</h4></a>
-                    <span class="product-sep"></span>
-                    <p class="product-price"><span class="price-cut">$287.99</span> $187.99</p>
-                  </div>
-
-                </div><!-- / .shop-product-card -->
-              </div><!-- / .col-sm-3 -->
-
-
-              <!-- Shop Product -->
-              <div class="col-xs-12 col-sm-6 col-lg-3">
-                <div class="shop-product-card">
-
-                  <!-- Image/Slider -->
-                  <div class="product-image-wrapper">
-                    <span class="label label-red sale-label">SALE</span>
-
-                    <!-- Product Actions (hover) -->
-                    <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                    <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                    <!-- Product Main Image -->
-                    <div class="shop-p-slider">
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 6"></a>
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 11"></a>
-                    </div>
-                  </div>
-
-                  <!-- Product Meta -->
-                  <div class="product-meta">
-                    <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Light Blue Blazer</h4></a>
-                    <span class="product-sep"></span>
-                    <p class="product-price"><span class="price-cut">$187.99</span> $97.99</p>
-                  </div>
-
-                </div><!-- / .shop-product-card -->
-              </div><!-- / .col-lg-3 -->
-
-
-              <!-- Shop Product -->
-              <div class="col-xs-12 col-sm-6 col-lg-3">
-                <div class="shop-product-card">
-
-                  <!-- Image/Slider -->
-                  <div class="product-image-wrapper">
-                    <!-- Product Actions (hover) -->
-                    <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                    <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                    <!-- Product Main Image -->
-                    <div class="shop-p-slider">
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 7"></a>
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 4"></a>
-                    </div>
-                  </div>
-
-                  <!-- Product Meta -->
-                  <div class="product-meta">
-                    <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Gray Padded Jacket</h4></a>
-                    <span class="product-sep"></span>
-                    <p class="product-price">$487.99</p>
-                  </div>
-
-                </div><!-- / .shop-product-card -->
-              </div><!-- / .col-lg-3 -->
-
-
-              <!-- Shop Product -->
-              <div class="col-xs-12 col-sm-6 col-lg-3">
-                <div class="shop-product-card">
-
-                  <!-- Image/Slider -->
-                  <div class="product-image-wrapper">
-                    <!-- Product Actions (hover) -->
-                    <a href="#" class="buy-btn"><span class="linea-ecommerce-bag"></span></a>
-                    <a href="#" class="fav-btn"><span class="linea-basic-star"></span></a>
-
-                    <!-- Product Main Image -->
-                    <div class="shop-p-slider">
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 8"></a>
-                      <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 1"></a>
-                    </div>
-                  </div>
-
-                  <!-- Product Meta -->
-                  <div class="product-meta">
-                    <a href="../../pages/shop/shop-single.html"><h4 class="product-name">Dark Gray Blazer</h4></a>
-                    <span class="product-sep"></span>
-                    <p class="product-price">$115.99</p>
-                  </div>
-
-                </div><!-- / .shop-product-card -->
-              </div><!-- / .col-lg-3 -->
-            </div><!-- / .row -->
-          </div><!-- / .container -->
-        </div><!-- / .gray-bg -->
 {include file="smarty_common/footer.tpl"}

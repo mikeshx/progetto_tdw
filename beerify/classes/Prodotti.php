@@ -73,6 +73,7 @@ class Prodotto {
 
     /* Query DB */
 
+    /* All products */
     public static function getAllProdotti()
     {
         $sql = "SELECT * FROM prodotti";
@@ -86,6 +87,29 @@ class Prodotto {
         $prodotti = array();
 
 
+        while ($row = $result->fetch_assoc()) {
+            $prodotti[] = $row;
+        }
+        $stmt->close();
+        Database::closeConnection($conn);
+
+        return $prodotti;
+    }
+
+
+    /* Get product for id */
+    public static function getProdotto($id)
+    {
+        $sql = "SELECT * FROM prodotti WHERE id=?";
+
+        $conn = Database::getConnection();
+        // prepare and bind
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $prodotti = array();
         while ($row = $result->fetch_assoc()) {
             $prodotti[] = $row;
         }

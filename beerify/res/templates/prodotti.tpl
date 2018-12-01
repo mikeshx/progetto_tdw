@@ -16,13 +16,13 @@
 
                                 <!-- Product Main Image -->
                                 <div class="shop-p-slider">
-                                    <a href="../../pages/shop/shop-single.html"><img src="http://placehold.it/263x350" alt="Product Image 12"></a>
+                                    <a href="shop-single.php?newId={$r.id}"><img src="http://placehold.it/263x350" alt="Product Image 12"></a>
                                 </div>
                             </div>
 
                             <!-- Product Meta -->
                             <div class="product-meta">
-                                <a href="../../pages/shop/shop-single.html"><h4 class="product-name">{$r.nome}</h4></a>
+                                <a href="shop-single.php?newId={$r.id}"><h4 class="product-name">{$r.nome}</h4></a>
                                 <span class="product-sep"></span>
                                 <p class="product-price">{$r.prezzo} €</p>
                             </div>
