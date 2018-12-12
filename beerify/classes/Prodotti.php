@@ -204,32 +204,32 @@ class Prodotto {
     public function insertProduct()
     {
         try {
-          $conn = Database::getPDOConnection();
-          // set the PDO error mode to exception
-          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn = Database::getPDOConnection();
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-          // prepare sql and bind parameters
-          $stmt = $conn->prepare("INSERT INTO prodotti (id, nome, descrizione, quantita, prezzo)
+            // prepare sql and bind parameters
+            $stmt = $conn->prepare("INSERT INTO prodotti (id, nome, descrizione, quantita, prezzo)
           VALUES (:id, :nome, :descrizione, :quantita, :prezzo)");
 
-          $stmt->bindParam(':id', $id);
-          $stmt->bindParam(':nome', $nome);
-          $stmt->bindParam(':descrizione', $descrizione);
-          $stmt->bindParam(':quantita', $quantita);
-          $stmt->bindParam(':prezzo', $prezzo);
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':descrizione', $descrizione);
+            $stmt->bindParam(':quantita', $quantita);
+            $stmt->bindParam(':prezzo', $prezzo);
 
-          // Get the values
-          $id = NULL;
-          $nome = $_POST['nome'];
-          $descrizione = $_POST['descrizione'];
-          $quantita = $_POST['quantita'];
-          $prezzo = $_POST['prezzo'];
+            // Get the values
+            $id = NULL;
+            $nome = $_POST['nome'];
+            $descrizione = $_POST['descrizione'];
+            $quantita = $_POST['quantita'];
+            $prezzo = $_POST['prezzo'];
 
-          $stmt->execute();
+            $stmt->execute();
 
         }
         catch(PDOException $e) {
-          echo "Error: " . $e->getMessage();
+            echo "Error: " . $e->getMessage();
         }
 
         $conn = null;

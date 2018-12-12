@@ -1,6 +1,11 @@
 <?php
 ini_set('display_errors', 1);
 
+// We start a session to check if the userid is set properly
+session_start();
+
+require ('classes/ShoppingCart.php');
+
 //dir Win - Linux
 require_once('require.php');
 require_once ('classes/Prodotti.php');
@@ -17,5 +22,8 @@ foreach ($params as $key => $params){
 }
 
 $mySmarty->display(RES_DIR . '/templates/shop-single.tpl');
+
+// Initialize the shopping cart object
+$shoppingCart = new ShoppingCart();
 
 ?>
