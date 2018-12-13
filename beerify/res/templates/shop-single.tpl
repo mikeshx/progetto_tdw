@@ -31,7 +31,7 @@
       <div class="col-md-12">
         <ul class="product-meta">
           <li>COD: {$r.id}</li>
-          <li>TAGS: <a href="#">Suits</a>, <a href="#">Man</a></li>
+          <li>TAGS: {foreach $tag as $r}<a href="search_for_tag.php?idTag={$r.id}">{$r.nome}</a> {foreachelse} <li>.. No result ..</li> {/foreach}</li>
         </ul>
       </div>
 

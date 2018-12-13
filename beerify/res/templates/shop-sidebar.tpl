@@ -34,7 +34,7 @@
                   <!-- Search Widget -->
                   <div class="shop-widget search-widget">
                     <div class="form-group">
-                      <form method="POST" action="search.php"><input type="text" name="search" id="search" class="form-control" value="Search...">
+                      <form method="POST" action="search.php"><input type="text" name="search" id="search" class="form-control" value="Search..." onfocus="this.value='';">
                         <button class="inside-input-btn"><i class="fa fa-search"></i></button>
                       </form>
                     </div>
@@ -103,7 +103,7 @@
                     <h5 class="header-widget">Tags</h5>
                     <ul class="tag-list">
                       {foreach $tag as $r}
-                        <li><a href="#">{$r.id}</a></li>
+                        <li><a href="search_for_tag.php?idTag={$r.id}">{$r.nome}</a></li>
                         {foreachelse}
                         <li>.. No result ..</li>
                       {/foreach}

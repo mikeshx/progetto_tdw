@@ -96,6 +96,50 @@ class Prodotto {
         return $prodotti;
     }
 
+    /* Get product Tag */
+    public static function getProductTag($id)
+    {
+        $sql = "SELECT tag.id, tag.nome FROM tag INNER JOIN tag_prodotti ON tag.id = tag_prodotti.tag_id WHERE tag_prodotti.prodotti_id = ?";
+
+        $conn = Database::getConnection();
+        // prepare and bind
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $tags = array();
+        while ($row = $result->fetch_assoc()) {
+            $tags[] = $row;
+        }
+        $stmt->close();
+        Database::closeConnection($conn);
+
+        return $tags;
+    }
+
+
+    /* Get product for tag */
+    public static function getProdottiTag($id)
+    {
+        $sql = "SELECT * FROM prodotti INNER JOIN tag_prodotti ON prodotti.id = tag_prodotti.prodotti_id WHERE tag_prodotti.tag_id = ?";
+
+        $conn = Database::getConnection();
+        // prepare and bind
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $prodotti = array();
+        while ($row = $result->fetch_assoc()) {
+            $prodotti[] = $row;
+        }
+        $stmt->close();
+        Database::closeConnection($conn);
+
+        return $prodotti;
+    }
 
     /* Get product for id */
     public static function getProdotto($id)
@@ -162,7 +206,7 @@ class Prodotto {
         return $prodotti;
     }
 
-    /* Number of products */
+    /* Number of products search */
     public static function getNumberRowsSearch($name)
     {
         $sql = "SELECT * FROM prodotti WHERE (nome LIKE '%" . $name . "%')";
@@ -177,6 +221,24 @@ class Prodotto {
             return $row_cnt;
         }
     }
+
+    /* Number of products search tag*/
+    public static function getNumberRowsSearchTag($id)
+    {
+        $sql = "SELECT * FROM prodotti INNER JOIN tag_prodotti ON prodotti.id = tag_prodotti.prodotti_id WHERE tag_prodotti.tag_id =?";
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+
+
+        if($result = $stmt->get_result()) {
+            $row_cnt = $result->num_rows;
+            $result->close();
+            return $row_cnt;
+        }
+    }
+
 
     /* All products order by Low Price*/
     public static function getAllProdottiLowPrice()

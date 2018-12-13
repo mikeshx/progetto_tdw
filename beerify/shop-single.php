@@ -15,6 +15,13 @@ $mySmarty = new mySmarty();
 /* Id prodotto */
 $id = $_GET['newId'];
 
+
+/* Query Tag realtive al prodotto */
+$tag = array('tag' => Prodotto::getProductTag($id));
+foreach ($tag as $key => $tag){
+    $mySmarty->assign($key , $tag);
+}
+
 /* Query di richiesta del prodotto*/
 $params = array('prodotti' => Prodotto::getProdotto($id));
 foreach ($params as $key => $params){

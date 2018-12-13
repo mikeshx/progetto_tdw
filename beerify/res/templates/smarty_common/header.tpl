@@ -113,7 +113,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i> Search</a>
                     <ul class="dropdown-menu search-dropdown">
                         <li>
-                            <form method="POST" action="search.php"><input type="text" name="search" id="search" class="form-control" value="Search..."></form>
+                            <form method="POST" action="search.php"><input type="text" name="search" id="search" class="form-control" value="Search..." onfocus="this.value='';"></form>
                         </li>
                     </ul>
                 </li>
