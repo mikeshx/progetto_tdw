@@ -55,7 +55,7 @@
               </button>
 
                 <!-- Logo -->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <h4>Beerify</h4>
                 </a>
             </div>
@@ -113,7 +113,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i> Search</a>
                     <ul class="dropdown-menu search-dropdown">
                         <li>
-                            <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+                            <form method="POST" action="search.php"><input type="text" name="search" id="search" class="form-control" value="Search..."></form>
                         </li>
                     </ul>
                 </li>

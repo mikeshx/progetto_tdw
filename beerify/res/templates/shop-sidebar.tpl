@@ -12,8 +12,7 @@
                 </div>
                 <ol class="col-sm-6 text-right breadcrumb">
                   <li><a href="index.php">Home</a></li>
-                  <li><a href="shop.php">Elements</a></li>
-                  <li class="active">Shop</li>
+                  <li class="active"><a href="shop.php">Shop</a></li>
                 </ol>
 
               </div>
@@ -35,8 +34,9 @@
                   <!-- Search Widget -->
                   <div class="shop-widget search-widget">
                     <div class="form-group">
-                      <input type="search" placeholder="Search ..." class="form-control">
-                      <button class="inside-input-btn"><i class="fa fa-search"></i></button>
+                      <form method="POST" action="search.php"><input type="text" name="search" id="search" class="form-control" value="Search...">
+                        <button class="inside-input-btn"><i class="fa fa-search"></i></button>
+                      </form>
                     </div>
                   </div>
 

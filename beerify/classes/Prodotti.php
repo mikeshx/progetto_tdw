@@ -142,6 +142,42 @@ class Prodotto {
         return $prodotti;
     }
 
+    /* Search Product */
+    public static function searchProduct($name) {
+        $sql = "SELECT * FROM prodotti WHERE (nome LIKE '%" . $name . "%')";
+
+        $conn = Database::getConnection();
+        // prepare and bind
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $prodotti = array();
+        while ($row = $result->fetch_assoc()) {
+            $prodotti[] = $row;
+        }
+        $stmt->close();
+        Database::closeConnection($conn);
+
+        return $prodotti;
+    }
+
+    /* Number of products */
+    public static function getNumberRowsSearch($name)
+    {
+        $sql = "SELECT * FROM prodotti WHERE (nome LIKE '%" . $name . "%')";
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+
+        if($result = $stmt->get_result()) {
+            $row_cnt = $result->num_rows;
+            $result->close();
+            return $row_cnt;
+        }
+    }
+
     /* All products order by Low Price*/
     public static function getAllProdottiLowPrice()
     {
