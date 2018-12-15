@@ -163,20 +163,19 @@ class Prodotto {
         return $prodotti;
     }
 
-    /* All products order by high price */
-    public static function getAllProdottiHighPrice()
+    /* All products by price */
+    public static function getAllProductForPrice($min,$max)
     {
-        $sql = "SELECT * FROM prodotti ORDER BY prezzo DESC";
+        $sql = "SELECT * FROM prodotti WHERE prezzo >=? AND prezzo <=?;";
 
         $conn = Database::getConnection();
         // prepare and bind
         $stmt = $conn->prepare($sql);
+        $stmt->bind_param('ss', $min,$max);
         $stmt->execute();
         $result = $stmt->get_result();
 
         $prodotti = array();
-
-
         while ($row = $result->fetch_assoc()) {
             $prodotti[] = $row;
         }
@@ -222,6 +221,23 @@ class Prodotto {
         }
     }
 
+    /* Number of products for price*/
+    public static function getNumberRowsForPrice($min,$max)
+    {
+        $sql = "SELECT * FROM prodotti WHERE prezzo >=? AND prezzo <=?;";
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('ss', $min,$max);
+        $stmt->execute();
+
+
+        if($result = $stmt->get_result()) {
+            $row_cnt = $result->num_rows;
+            $result->close();
+            return $row_cnt;
+        }
+    }
+
     /* Number of products search tag*/
     public static function getNumberRowsSearchTag($id)
     {
@@ -237,30 +253,6 @@ class Prodotto {
             $result->close();
             return $row_cnt;
         }
-    }
-
-
-    /* All products order by Low Price*/
-    public static function getAllProdottiLowPrice()
-    {
-        $sql = "SELECT * FROM prodotti ORDER BY prezzo";
-
-        $conn = Database::getConnection();
-        // prepare and bind
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $prodotti = array();
-
-
-        while ($row = $result->fetch_assoc()) {
-            $prodotti[] = $row;
-        }
-        $stmt->close();
-        Database::closeConnection($conn);
-
-        return $prodotti;
     }
 
     /* Number of products */

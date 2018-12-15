@@ -63,8 +63,16 @@
                     <h5 class="header-widget">Filter by Price</h5>
                     <div id="shop-slider-range"></div>
                     <p>
-                      <label for="amount">From:</label>
-                      <input type="text" id="shop-slider-range-amount" readonly>
+                    <div class="form-group">
+                      <form method="POST" action="search_for_price.php">
+                        <label for="amount">Price min:</label>
+                        <input type="text" name="priceMin" id="priceMin" class="w3-border" value="0" onfocus="this.value='';">
+                        <label for="amount">Price max:</label>
+                        <input type="text" name="priceMax" id="priceMax" class="w3-border" value="10" onfocus="this.value='';">
+                        <br>
+                        <br><button class="btn-ghost btn-small"><i class="fa fa-search"></i></button></br>
+                      </form>
+                    </div>
                     </p>
                   </div><!-- / .filter-widget -->
 

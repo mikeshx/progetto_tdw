@@ -24,9 +24,10 @@
         <!-- Range Slider -->
         <link rel="stylesheet" href="assets/styles/vendor/jquery-ui.min.css">
         <link rel="stylesheet" href="assets/styles/vendor/jquery-ui.structure.min.css">
-        <!-- Paginazione test -->
+        <!-- Paginazione -->
         <link rel="stylesheet" href="assets/styles/vendor/myCssPagination.css">
-
+        <!-- Filtro -->
+        <link rel="stylesheet" href="assets/styles/vendor/myCssFilter.css">
 
 
         <!-- Definity CSS -->
